@@ -26,7 +26,7 @@ public class Course {
     }
 
     public void show(){
-        System.out.println("The course name is " + name+" and its mark is " + mark);
+        System.out.println("The course name is " + this.getName()+" and its mark is " + this.getMark());
     }
 
 }

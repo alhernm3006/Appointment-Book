@@ -5,8 +5,10 @@ import java.util.List;
 
 public class GradesManagement {
     private List<Course> list;
+    private String student ;
 
     public GradesManagement(String name) {
+        this.student = name;
         this.list = new ArrayList<Course>();
     }
 
@@ -14,10 +16,16 @@ public class GradesManagement {
         list.add(course);
     }
 
-    public void showCourse() {
+    public String getStudentName() {
+        return student;
+    }
+
+    public String showCourse() {
+        String s = "The student is " + getStudentName()+" and the marks are: \n";
         for (Course course : list) {
-            course.show();
+            s=s+course.getName()+" and the mark is "+course.getMark()+" \n";
         }
+        return s;
     }
 
     public void average() {
