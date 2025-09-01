@@ -31,6 +31,7 @@ public class Main {
                     c1.seeStudents();
                     break;
                 case 2:
+                    System.out.println("The teacher is: "  );
                     c1.seeTeacher();
                     break;
                 case 3:
