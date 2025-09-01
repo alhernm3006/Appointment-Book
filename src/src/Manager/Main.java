@@ -24,11 +24,23 @@ public class Main {
             System.out.println("0. Leave.");
 
             option=sc.nextInt();
-
+            sc.nextLine();
 
             switch(option){
                 case 1:
+                    if(c1.getNumStudents()==0){
+                        System.out.println("You have no students.");
+                        break;
+                    }
                     c1.seeStudents();
+                    System.out.println("Do you want to see one specific classroom students? (Y/N)");
+                    String choice=sc.nextLine();
+                    if(choice.equalsIgnoreCase("Y")){
+                        System.out.println("Enter student name: ");
+                        name=sc.nextLine();
+                        sc.nextLine();
+                        c1.getStudent(name).showCourse();
+                    }
                     break;
                 case 2:
                     System.out.println("The teacher is: "  );
@@ -37,13 +49,33 @@ public class Main {
                 case 3:
                     System.out.println("Introduce the student´s name.");
                     String studentName=sc.nextLine();
-                    System.out.println("Introduce the subject and then mark.");
+                    sc.nextLine();
+                    System.out.println("Introduce the subject.");
                     String subject=sc.nextLine();
+                    sc.nextLine();
+                    System.out.println("Introduce the mark.");
                     Double mark=sc.nextDouble();
+                    sc.nextLine();
                     GradesManagement gradesManagement=new GradesManagement(studentName);
                     gradesManagement.addCourse(new Course(subject,mark));
                     c1.addStudent(gradesManagement);
                     break;
+                case 4:
+                    System.out.println("Introduce the student.");
+                    String studentName2=sc.nextLine();
+                    sc.nextLine();
+                    if(c1.getStudent(studentName2)==null){
+                        System.out.println("Student not found.");
+                        break;
+                    }
+                    System.out.println("Introduce the subject."  );
+                    String subject2=sc.nextLine();
+                    sc.nextLine();
+                    System.out.println("Introduce the mark.");
+                    Double mark2=sc.nextDouble();
+                    sc.nextLine();
+                    c1.getStudent(studentName2).addSubject(subject2,mark2 );
+
             }
         }while(option!=0);
 

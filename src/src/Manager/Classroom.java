@@ -29,4 +29,17 @@ public class Classroom {
     public void seeTeacher() {
         System.out.println(this.getTeacher());
     }
+
+    public GradesManagement getStudent(String student) {
+        for(GradesManagement student1: students) {
+            if(student1.getStudentName().equals(student)) {
+                return student1;
+            }
+        }
+        return null;
+    }
+
+    public int getNumStudents() {
+        return students.size();
+    }
 }

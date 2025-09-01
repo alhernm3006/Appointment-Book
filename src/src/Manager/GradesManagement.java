@@ -16,6 +16,10 @@ public class GradesManagement {
         list.add(course);
     }
 
+    public void addSubject(String subject,Double mark) {
+        list.add(new Course(subject,mark));
+    }
+
     public String getStudentName() {
         return student;
     }
